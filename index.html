@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <link rel="icon" type="image/jpg" href="favicon.png"/>
     <title>Materos</title>
     <style>
@@ -16,6 +17,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, lightgray, gray);
 
             line-height: 1.6;
             color: #333;
@@ -31,35 +33,45 @@
         header h1 {
             margin-bottom: 10px;
         }
+header {
+  background-color:#006433;
+  padding: 10px 17px;
+}
 
-    
-nav {
+header nav {
   display: flex;
-  align-items: center; 
-  padding: 17px; 
-  font-size: 27px;
-  background-color: #006434;
-color:white; 
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Estilo para el logo */
-nav a.logo {
-  display: flex; /* Para que el contenido del enlace (imagen) sea flexible */
-  align-items: center;
-  margin-right: 20px; /* Espacio entre el logo y las secciones */
+.logo img {
+  max-width: 100px; /* ajusta el tamaño del logo */
+  height: auto;
 }
 
-/* Estilo para la imagen del logo */
-nav a.logo img {
-  height: 120px;
-  width: 120px;
-  /* Puedes eliminar los estilos en línea del HTML y moverlos aquí */
-}
-
-/* Estilo para los enlaces de navegación */
+/* Estilos para los enlaces de navegación */
 nav a {
-  margin-right: 63px; /* Separación entre enlaces */
-  text-decoration: none; /* Quitar subrayado */
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Opcional: agregar un botón o icono para desplegar el menú en pantallas pequeñas */
+  /* Aquí puedes agregar un botón de menú y con JavaScript mostrar u ocultar los enlaces */
+}
+
+
+nav a {
+  margin-right: 87px; /* Separación entre enlaces */
+  text-decoration: none; 
   color:white; 
 
   font-weight: bold; 
@@ -69,7 +81,36 @@ nav a {
 nav a:hover {
   color: black;
 }
+/* Esconde el botón y los enlaces en pantallas grandes */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
 
+.menu-items {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  /* Muestra el botón y oculta los enlaces inicialmente */
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Cuando se active, muestra los enlaces */
+  .menu-active {
+    display: flex;
+  }
+}
       
        .banner-container {
   width: 100vw; /* ancho de la vista */
@@ -98,7 +139,7 @@ nav a:hover {
   }
 
   .values-table {
-    width: 106%;
+    width: 100%;
     border-collapse: collapse;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 8px;
@@ -115,7 +156,7 @@ nav a:hover {
   }
 
   .values-table td {
-    background-color: #fff;
+    background-color: blue;
     padding: 15px;
     border: dashed;
     text-align:left;
@@ -157,8 +198,7 @@ nav a:hover {
             object-fit: cover;
         }
 
-       
-        /* Sección Sobre la empresa */
+        
         section {
             padding: 40px 20px;
             font-size: 33px;
@@ -221,7 +261,7 @@ nav a:hover {
         }
 
         .galeria img:hover {
-            transform: scale(1.05);
+            transform: scale(1.09);
         }
 
       
@@ -233,9 +273,9 @@ nav a:hover {
 .btn-descargar {
     background-color: #006433; 
     color: #ffffff;
-    padding: 15px 30px;
-    margin-left: 300px;
-    font-size: 29px;
+    padding: 15px 35px;
+    margin-left: 367px;
+    font-size: 33px;
     font-family: Arial, sans-serif;
     border: none;
     border-radius: 8px;
@@ -346,30 +386,66 @@ nav a:hover {
                 padding: 20px 10px;
                  flex-direction: column;
             }
+            /* Estilo base para la imagen en el carrusel */
+#logoCarousel img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* Media query para pantallas pequeñas (ej. teléfonos) */
+@media (max-width: 576px) {
+  /* Puedes ajustar estilos específicos para pantallas pequeñas */
+  #logoCarousel {
+    /* Ejemplo: reducir márgenes o ajustar tamaño */
+  }
+  #logoCarousel img {
+    /* Opcional: ajustar tamaño o comportamiento en pantallas pequeñas */
+  }
+}
+
+/* Media query para tablets y pantallas medianas */
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Ajustes para tablets */
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 769px) and (max-width: 1200px) {
+  /* Ajustes para pantallas grandes */
+}
+
+/* Media query para pantallas extra grandes */
+@media (min-width: 1201px) {
+  /* Ajustes para pantallas muy grandes */
+}
         }
+
     </style>
 </head>
 <body>
-   <header>
+ <header>
   <nav>
     <a href="" class="logo">
       <img src="dek.jpg" alt="Logo">
     </a>
-    <a href="#sobre">Sobre Nosotros</a>
-    <a href="#Matero">Nuestros Productos</a>
-    <a href="#beneficios">Beneficios</a>
-    <a href="#contacto">Contacto</a>
+    <button class="menu-toggle" aria-label="Mostrar menú">☰</button>
+    <div class="menu-items">
+      <a href="#sobre">Sobre Nosotros</a>
+      <a href="#Matero">Nuestros Productos</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
   </nav>
 </header>
 <div class="container" style="margin:0; padding:0; height:100vh; width:100vw;">
   <div id="logoCarousel" class="carousel slide" data-ride="carousel" style="height:100vh; width:100vw;">
     <div class="carousel-inner" style="height:100%; width:100%;">
-      
-     
       <div class="carousel-item active" style="height:100%; position:relative;">
-    
-        <img src="bannler2.png" class="d-block w-100 h-100" style="object-fit:cover; filter: brightness(0.4); height:100%; width:100%;">
-       
+        <img src="bannler2.png" class="d-block w-100 h-100" style="object-fit:contain; height:100%; width:100%;">
+      </div>
+    </div>
+  </div>
+</div>
     
       
     <section id="sobre">
@@ -477,10 +553,13 @@ En Dekobloques cuidamos todos los detalles desde el proceso de fabricación hast
             <p><strong>Dirección:</strong> Carretera Charallave – Santa Teresa, Sector La Raiza al lado de la urbanización La Raiza, local SN Santa Lucía del Tuy, Municipio La Paz, estado Miranda</p>
         <strong>Representantes de Ventas</strong> 
         <br>
-         <strong>Edgar García</strong> 
+      
+         <b>Edgar García</b> 
+         <i class="fab fa-whatsapp"></i>
 <a href="https://wa.me/584142007655" target="_blank">0414-200-7655</a>  
 <br>
-<strong>Sulay Castro</strong> 
+<b>Sulay Castro</b> 
+<i class="fab fa-whatsapp"></i>
 <a href="https://wa.me/584125302497" target="_blank">0412-530-2497</a>
             <p><strong>Email:</strong> </p>
             <a href="mailto:dekobloquesfacturacion@gmail.com?subject=información"> dekobloquesfacturacion@gmail.com</a>
@@ -506,7 +585,12 @@ En Dekobloques cuidamos todos los detalles desde el proceso de fabricación hast
     }
   });
 });
-       
+       const toggleButton = document.querySelector('.menu-toggle');
+const menuItems = document.querySelector('.menu-items');
+
+toggleButton.addEventListener('click', () => {
+  menuItems.classList.toggle('menu-active');
+});
     </script>
     <footer>
         <p>&copy; 2025 Dekobloques C.A.  Todos los derechos reservados.</p>
